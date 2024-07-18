@@ -1,9 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using QLNhaSach.Data;
 
 namespace QLNhaSach.Controllers
 {
+    [Authorize]
     public class StoreController : Controller
     {
         private readonly QLNhaSachContext _context;
@@ -12,12 +14,13 @@ namespace QLNhaSach.Controllers
         {
             _context = context;
         }
-     
+
+        [AllowAnonymous]
         public async Task<IActionResult> Index()
         { 
             return View(await _context.Books.ToListAsync());
         }
-    public async Task<IActionResult> Details(int? id)
+        public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
             {

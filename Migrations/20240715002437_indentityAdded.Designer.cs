@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using QLNhaSach.Data;
 
@@ -11,9 +12,10 @@ using QLNhaSach.Data;
 namespace QLNhaSach.Migrations
 {
     [DbContext(typeof(QLNhaSachContext))]
-    partial class QLNhaSachContextModelSnapshot : ModelSnapshot
+    [Migration("20240715002437_indentityAdded")]
+    partial class indentityAdded
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

@@ -8,7 +8,7 @@ builder.Services.AddDbContext<QLNhaSachContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("QLNhaSachContext") ?? throw new InvalidOperationException("Connection string 'QLNhaSachContext' not found.")));
 
 builder.Services.AddDefaultIdentity<DefaultUser>(options => options.SignIn.RequireConfirmedAccount = true)
-    .AddEntityFrameworkStores<QLNhaSachContext>();
+                .AddRoles<IdentityRole>().AddEntityFrameworkStores<QLNhaSachContext>();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
@@ -60,8 +60,8 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-app.UseAuthentication();;
 
+app.UseAuthentication();;
 app.UseAuthorization();
 
 app.UseSession();

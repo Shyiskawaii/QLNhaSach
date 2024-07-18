@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace QLNhaSach.Models
@@ -7,15 +8,23 @@ namespace QLNhaSach.Models
     {
         [PersonalData]
         [Required]
-        public string RealName { get; set; }
+        public string FirstName { get; set; }
 
         [PersonalData]
         [Required]
-        public string UserName { get; set; }
+        public string LastName { get; set; }
 
         [PersonalData]
+        [Required]
         public string Address { get; set; }
 
+        [PersonalData]
+        [Required]
+        public string ZipCode { get; set; }
+
+        [PersonalData]
+        [Required]
+        public string City { get; set; }
 
         [PersonalData]
         [DataType(DataType.Date)]
