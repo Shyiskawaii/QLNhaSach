@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using QLNhaSach.Data;
 using Microsoft.AspNetCore.Identity;
+
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<QLNhaSachContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("QLNhaSachContext") ?? throw new InvalidOperationException("Connection string 'QLNhaSachContext' not found.")));
@@ -32,10 +33,8 @@ using (var scope = app.Services.CreateScope())
     
     try
     {
-        // Initialize Roles and Users. Uncomment and implement the following line if you have a UserRoleInitializer class.
-        // await UserRoleInitializer.InitializeAsync(services);
+        await UserRoleInitializer.InitializeAsync(services);
 
-        // Seed book data. Uncomment and implement the following line if you have a SeedData class.
         SeedData.Initialize(services);
     }
     catch (Exception ex)
@@ -43,7 +42,6 @@ using (var scope = app.Services.CreateScope())
         var logger = services.GetRequiredService<ILogger<Program>>();
         logger.LogError(ex, "An error occurred while attempting to seed the database");
     }
-    
 }
 
 
