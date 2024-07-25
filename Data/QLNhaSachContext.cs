@@ -19,5 +19,6 @@ namespace QLNhaSach.Data
         public DbSet<CartItem> CartItems { get; set; }
         public DbSet<Bill> Bills { get; set; }
         public DbSet<BillItem> BillItems { get; set; }
+        public DbSet<QLNhaSach.Models.Storage>? Storage { get; set; }
     }
 }
