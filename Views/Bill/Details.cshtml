@@ -1,0 +1,57 @@
+﻿@model QLNhaSach.Models.Bill
+
+@{
+    ViewData["Title"] = "Bill Details";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div>
+    <h4>Bill</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.BillDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.BillDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.BillTotal)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.BillTotal)
+        </dd>
+    </dl>
+</div>
+
+<h4>Items</h4>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.BillItems[0].Book.BookName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BillItems[0].Quantity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BillItems[0].Price)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.BillItems)
+        {
+            <tr>
+                <td>@item.Book.BookName</td>
+                <td>@item.Quantity</td>
+                <td>@item.Price</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<p>
+    <a href="@Url.Action("Index", "Bill")">Back to List</a>
+</p>
