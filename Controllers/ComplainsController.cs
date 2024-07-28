@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -13,11 +15,11 @@ namespace QLNhaSach.Controllers
     public class ComplainsController : Controller
     {
         private readonly QLNhaSachContext _context;
-
         public ComplainsController(QLNhaSachContext context)
         {
             _context = context;
         }
+      
 
         // GET: Complains
         public async Task<IActionResult> Index()
@@ -48,6 +50,8 @@ namespace QLNhaSach.Controllers
         // GET: Complains/Create
         public IActionResult Create()
         {
+            var userId = 1;
+            ViewBag.UserId = userId;
             return View();
         }
 
@@ -56,10 +60,14 @@ namespace QLNhaSach.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ComplainId,Description,Status,Response,UserId")] Complain complain)
+        public async Task<IActionResult> Create([Bind("ComplainId,Description,UserId")] Complain complain)
         {
             if (ModelState.IsValid)
             {
+                complain.Status = false;
+                complain.Response = false;
+
+
                 _context.Add(complain);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));

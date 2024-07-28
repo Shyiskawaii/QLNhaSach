@@ -8,7 +8,7 @@ namespace QLNhaSach.Models
 {
     public static class UserRoleInitializer
     {
-        public static async Task InitializeAsync(IServiceProvider serviceProvider)
+        public static async Task InitializeAsync(UserManager<IdentityUser> userManager, IServiceProvider serviceProvider)
         {
             var roleManager = serviceProvider.GetRequiredService<RoleManager<IdentityRole>>();
             var userManager = serviceProvider.GetRequiredService<UserManager<DefaultUser>>();

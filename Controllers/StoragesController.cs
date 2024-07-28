@@ -68,7 +68,7 @@ namespace QLNhaSach.Controllers
                 var book = await _context.Books.FindAsync(storage.BookId);
                 if (book != null)
                 {
-                    book.NumOfBook += storage.Transfer; // Adjust NumOfBooks based on Transfer
+                    book.NumOfBook += storage.Transfer;
 
                     _context.Add(storage);
                     await _context.SaveChangesAsync();

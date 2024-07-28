@@ -32,7 +32,9 @@ namespace QLNhaSach.Models
         public bool BookStatus { get; set; }
         
         [Required,
-        DataType(DataType.Currency)]
+        DataType(DataType.Currency),
+        DisplayFormat(DataFormatString = "{0:N0}", ApplyFormatInEditMode = true)]
+        
         public int Price { get; set; }
 
         [Required]
