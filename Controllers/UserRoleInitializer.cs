@@ -13,7 +13,7 @@ namespace QLNhaSach.Models
             var roleManager = serviceProvider.GetRequiredService<RoleManager<IdentityRole>>();
             var userManager = serviceProvider.GetRequiredService<UserManager<DefaultUser>>();
 
-            string[] roleNames = { "Admin", "User","Khách hàng" };
+            string[] roleNames = { "Admin", "User" };
 
             IdentityResult roleResult;
 
