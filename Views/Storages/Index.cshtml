@@ -12,42 +12,32 @@
 <table class="table">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.BookId)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Transfer)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Cost)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Note)
-            </th>
+            <th>Book Name</th>
+            <th>Transfer</th>
+            <th>Price</th>
+            <th>Cost</th>
+            <th>Num Of Books</th>
+            <th>Note</th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.BookId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Transfer)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Cost)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Note)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.StorageID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.StorageID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.StorageID">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            var book = ((Dictionary<int, QLNhaSach.Models.Book>)ViewBag.Books)[item.BookId];
+            <tr>
+                <td>@book.BookName</td> 
+                <td>@Html.DisplayFor(modelItem => item.Transfer)</td>
+                <td>@book.Price</td>
+                <td>@Html.DisplayFor(modelItem => item.Cost)</td>
+                <td>@book.NumOfBook</td> 
+                <td>@Html.DisplayFor(modelItem => item.Note)</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.StorageID">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.StorageID">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.StorageID">Delete</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

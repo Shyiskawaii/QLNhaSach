@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using QLNhaSach.Data;
 using QLNhaSach.Models;
 
@@ -13,6 +14,12 @@ namespace QLNhaSach.Controllers
         {
             _context = context;
             _cart = cart;
+        }
+        public async Task<IActionResult> Index()
+        {
+            return _context.Bills != null ?
+                        View(await _context.Bills.ToListAsync()) :
+                        Problem("Entity set 'QLNhaSachContext.Bills'  is null.");
         }
 
         public IActionResult Checkout()

@@ -22,10 +22,13 @@ namespace QLNhaSach.Controllers
         // GET: Storages
         public async Task<IActionResult> Index()
         {
-              return _context.Storage != null ? 
+            ViewBag.Books = await _context.Books
+                                          .ToDictionaryAsync(b => b.BookId, b => b);
+            return _context.Storage != null ? 
                           View(await _context.Storage.ToListAsync()) :
                           Problem("Entity set 'QLNhaSachContext.Storage'  is null.");
         }
+
 
         // GET: Storages/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -46,8 +49,9 @@ namespace QLNhaSach.Controllers
         }
 
         // GET: Storages/Create
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
+            ViewBag.StorageBook = new SelectList(await _context.Books.ToListAsync(), "BookId", "BookName");
             return View();
         }
 
@@ -58,10 +62,17 @@ namespace QLNhaSach.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("StorageID,BookId,Transfer,Cost,Note")] Storage storage)
         {
+            ViewBag.StorageBook = new SelectList(await _context.Books.ToListAsync(), "BookId", "BookName");
             if (ModelState.IsValid)
             {
-                _context.Add(storage);
-                await _context.SaveChangesAsync();
+                var book = await _context.Books.FindAsync(storage.BookId);
+                if (book != null)
+                {
+                    book.NumOfBook += storage.Transfer; // Adjust NumOfBooks based on Transfer
+
+                    _context.Add(storage);
+                    await _context.SaveChangesAsync();
+                }
                 return RedirectToAction(nameof(Index));
             }
             return View(storage);
