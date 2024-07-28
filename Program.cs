@@ -21,7 +21,7 @@ builder.Services.AddScoped<Cart>(sp => Cart.GetCart(sp));
 builder.Services.AddDistributedMemoryCache();
 
 builder.Services.AddSession(options =>
-{
+{       
     options.Cookie.HttpOnly = true;
     options.Cookie.IsEssential = true;
     //options.IdleTimeout = TimeSpan.FromSeconds(10);
