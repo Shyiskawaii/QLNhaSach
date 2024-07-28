@@ -2,6 +2,8 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using QLNhaSach.Data;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace QLNhaSach.Controllers
 {
@@ -16,10 +18,29 @@ namespace QLNhaSach.Controllers
         }
 
         [AllowAnonymous]
-        public async Task<IActionResult> Index()
-        { 
-            return View(await _context.Books.ToListAsync());
+        public async Task<IActionResult> Index(string searchString, decimal? minPrice, decimal? maxPrice)
+        {
+            var books = from b in _context.Books
+                        select b;
+
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                books = books.Where(s => s.BookName.Contains(searchString) || s.Author.Contains(searchString));
+            }
+
+            if (minPrice.HasValue)
+            {
+                books = books.Where(s => s.Price >= minPrice.Value);
+            }
+
+            if (maxPrice.HasValue)
+            {
+                books = books.Where(s => s.Price <= maxPrice.Value);
+            }
+
+            return View(await books.ToListAsync());
         }
+
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)

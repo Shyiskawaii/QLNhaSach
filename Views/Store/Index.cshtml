@@ -4,23 +4,20 @@
     ViewData["Title"] = "Store";
 }
 
-<h2 class="my-4">Store</h2>
+<h2 class="my-4 text-center">Store</h2>
 
-
-<form asp-action="Index" class="col-2 my-1 p-2">
-    <div>
-        Filter search
-        <div class="my-1">
-            <input type="text" name="searchString" placeholder="Title or Author" class="form-control-sm col-12" />
-        </div>
-        <div class="my-1">
-            <input type="number" name="minPrice" step="1" placeholder="$min" class="form-control-sm col-5" />&nbsp;&#8212;&nbsp;<input type="number" name="maxPrice" step="1" placeholder="$max" class="form-control-sm col-5" />
-        </div>
-        <input type="submit" value="Filter" class="btn btn-primary btn-sm" />
-        <a asp-action="Index" class="btn btn-secondary btn-sm float-right">Clear</a>
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <form asp-action="Index" class="input-group mb-3">
+            <input type="text" name="searchString" class="form-control" placeholder="Tìm kiếm sản phẩm..." />
+            <input type="number" name="minPrice" class="form-control" step="1" placeholder="$min" style="max-width: 100px;" />
+            <input type="number" name="maxPrice" class="form-control" step="1" placeholder="$max" style="max-width: 100px;" />
+            <button class="btn btn-outline-secondary" type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+        </form>
     </div>
-</form>
-
+</div>
 
 <div class="row">
     @foreach (var book in Model)
