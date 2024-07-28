@@ -21,8 +21,8 @@ namespace QLNhaSach.Models
                 context.Books.AddRange(
                     new Book
                     {
-                        BookName = "The Great Gatsby",
-                        Description = "A novel about the American dream.",
+                        BookName = "Dark Nhân Tâm",
+                        Description = "A novel about the Dark of Tâm.",
                         Author = "F. Scott Fitzgerald",
                         Language = "English",
                         Publisher = "Scribner",
@@ -33,99 +33,99 @@ namespace QLNhaSach.Models
                     },
                     new Book
                     {
-                        BookName = "To Kill a Mockingbird",
-                        Description = "A novel about racial injustice.",
+                        BookName = "Cải thiện giao tiếp thành công",
+                        Description = "A Book about Giao tiếp thành cong.",
                         Author = "Harper Lee",
                         Language = "English",
                         Publisher = "J.B. Lippincott & Co.",
                         BookStatus = true,
                         Price = 15,
                         NumOfBook = 7,
-                        ImageUrl = "/images/dac-nhan-tam.jpg"
+                        ImageUrl = "/images/DaleCarnegie.jpg"
                     },
                     new Book
                     {
-                        BookName = "1984",
-                        Description = "A dystopian novel about totalitarianism.",
+                        BookName = "Dark Nhân Tâm Kiểu Nhật",
+                        Description = "Vẫn là Dark Nhân Tâm nhưng là tiếng nhật.",
                         Author = "George Orwell",
                         Language = "English",
                         Publisher = "Secker & Warburg",
                         BookStatus = true,
                         Price = 12,
                         NumOfBook = 6,
-                        ImageUrl = "/images/dac-nhan-tam.jpg"
+                        ImageUrl = "/images/DNTJP.jpg"
                     },
                     new Book
                     {
-                        BookName = "Pride and Prejudice",
-                        Description = "A romantic novel about manners.",
+                        BookName = "Hành trình về Phương đông",
+                        Description = "Hành trình để di đến phương đông",
                         Author = "Jane Austen",
                         Language = "English",
                         Publisher = "T. Egerton",
                         BookStatus = true,
                         Price = 8,
                         NumOfBook = 10,
-                        ImageUrl = "/images/dac-nhan-tam.jpg"
+                        ImageUrl = "/images/HTVPN.jpg"
                     },
                     new Book
                     {
-                        BookName = "The Catcher in the Rye",
-                        Description = "A novel about teenage rebellion.",
+                        BookName = "Oshio",
+                        Description = "Ohio.",
                         Author = "J.D. Salinger",
                         Language = "English",
                         Publisher = "Little, Brown and Company",
                         BookStatus = true,
                         Price = 10,
                         NumOfBook = 9,
-                        ImageUrl = "/images/dac-nhan-tam.jpg"
+                        ImageUrl = "/images/Osho.jpg"
                     },
                     new Book
                     {
-                        BookName = "The Hobbit",
-                        Description = "A fantasy novel about a hobbit's adventure.",
+                        BookName = "Xứ Anh Đào",
+                        Description = "A book about a Japanese's adventure.",
                         Author = "J.R.R. Tolkien",
                         Language = "English",
                         Publisher = "George Allen & Unwin",
                         BookStatus = true,
                         Price = 15,
                         NumOfBook = 4,
-                        ImageUrl = "/images/dac-nhan-tam.jpg"
+                        ImageUrl = "/images/XAD.jpg"
                     },
                     new Book
                     {
-                        BookName = "Fahrenheit 451",
-                        Description = "A dystopian novel about book burning.",
+                        BookName = "Mưu ế người xưa",
+                        Description = "Sách hướng đẫn người câm nói được.",
                         Author = "Ray Bradbury",
                         Language = "English",
                         Publisher = "Ballantine Books",
                         BookStatus = true,
                         Price = 9,
                         NumOfBook = 8,
-                        ImageUrl = "/images/dac-nhan-tam.jpg"
+                        ImageUrl = "/images/MKNX.jpg"
                     },
                     new Book
                     {
-                        BookName = "Moby-Dick",
-                        Description = "A novel about a sea captain's obsession.",
+                        BookName = "Xuất phát điểm",
+                        Description = "1 cuốn sách về điểm bắt đầu",
                         Author = "Herman Melville",
                         Language = "English",
                         Publisher = "Harper & Brothers",
                         BookStatus = true,
                         Price = 11,
                         NumOfBook = 6,
-                        ImageUrl = "/images/dac-nhan-tam.jpg"
+                        ImageUrl = "/images/TTBP.jpg"
                     },
                     new Book
                     {
-                        BookName = "War and Peace",
-                        Description = "A novel about the French invasion of Russia.",
+                        BookName = "Mô hình kinh doanh",
+                        Description = "hướng dẫn để khoong bị scam khi kinh doanh",
                         Author = "Leo Tolstoy",
                         Language = "English",
                         Publisher = "The Russian Messenger",
                         BookStatus = true,
                         Price = 20,
                         NumOfBook = 3,
-                        ImageUrl = "/images/dac-nhan-tam.jpg"
+                        ImageUrl = "/images/mohinhkinhdoanh.jpg"
                     }
                 );
 
